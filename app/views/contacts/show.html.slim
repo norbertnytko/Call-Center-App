@@ -1,0 +1,8 @@
+= contact.first_name
+= contact.last_name
+= contact.tel_number
+= link_to 'Make a phone call', new_marketing_campaign_contact_phone_call_path(marketing_campaign, contact)
+
+- contact.phone_calls.each do |call|
+  = call.date
+  = call.length

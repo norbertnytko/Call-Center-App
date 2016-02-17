@@ -1,0 +1,6 @@
+- marketing_campaigns.each do |campaign|
+  - campaign.contacts.each do |contact|
+      = link_to contact.first_name, marketing_campaign_contact_path(campaign, contact)
+      = contact.last_name
+      = contact.tel_number
+      = link_to 'Make a phone call', new_marketing_campaign_contact_phone_call_path(campaign, contact)
