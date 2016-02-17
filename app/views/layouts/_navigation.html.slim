@@ -1,0 +1,18 @@
+nav.navbar.navbar-inverse role="navigation"
+  .container
+    .navbar-header
+      button.navbar-toggle data-target="#navigation" data-toggle="collapse" type="button"
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      = link_to 'App name', root_path, class: 'navbar-brand'
+    #navigation.collapse.navbar-collapse
+      ul.nav.navbar-nav
+      ul.nav.navbar-nav.navbar-right
+        - if user_signed_in?
+          li
+            = link_to t('navbar.logout'), destroy_user_session_path, method: :delete
+        - else
+          li
+            = link_to t('navbar.signin'), new_user_session_path
