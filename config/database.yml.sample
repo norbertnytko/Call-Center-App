@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: twilio_development
+test:
+  <<: *default
+  database: twilio_test
+
+production:
+  <<: *default
+  database: twilio_production
+  username: twilio
+  password: <%= ENV['TWILIO_DATABASE_PASSWORD'] %>
