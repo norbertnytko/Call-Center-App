@@ -15,6 +15,7 @@ gem 'slim'
 gem 'decent_exposure'
 gem 'simple_form'
 gem 'bootstrap-sass'
+gem 'database_cleaner'
 
 group :development, :test do
   gem 'byebug'
