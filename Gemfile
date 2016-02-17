@@ -19,6 +19,7 @@ gem 'database_cleaner'
 gem 'devise'
 gem 'rails_admin'
 gem 'twilio-ruby'
+gem 'figaro'
 
 group :development, :test do
   gem 'byebug'
