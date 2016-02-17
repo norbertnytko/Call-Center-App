@@ -9,5 +9,6 @@ RSpec.describe PhoneCall, type: :model do
 
   describe 'associations' do
     it { is_expected.to belong_to :contact }
+    it { is_expected.to belong_to :marketer }
   end
 end

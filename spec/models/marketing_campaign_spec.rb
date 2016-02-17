@@ -7,5 +7,6 @@ RSpec.describe MarketingCampaign, type: :model do
 
   describe 'associations' do
     it { is_expected.to have_many :contacts }
+    it { is_expected.to have_many :marketers }
   end
 end
