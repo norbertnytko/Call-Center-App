@@ -1,4 +1,16 @@
 puts "Seeding ..."
+User.create!(
+  email: 'admin@admin.com',
+  password: '12345678',
+  admin: true
+)
+
+User.create!(
+  email: 'user@user.com',
+  password: '12345678',
+  admin: false
+)
+
 active_campaign = MarketingCampaign.create!(active: true)
 inactive_campaign = MarketingCampaign.create!(active: false)
 
