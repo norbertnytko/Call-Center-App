@@ -18,6 +18,7 @@ gem 'bootstrap-sass'
 gem 'database_cleaner'
 gem 'devise'
 gem 'rails_admin'
+gem 'twilio-ruby'
 
 group :development, :test do
   gem 'byebug'
