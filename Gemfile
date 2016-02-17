@@ -17,6 +17,7 @@ gem 'simple_form'
 gem 'bootstrap-sass'
 gem 'database_cleaner'
 gem 'devise'
+gem 'rails_admin'
 
 group :development, :test do
   gem 'byebug'
