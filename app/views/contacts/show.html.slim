@@ -1,8 +1,15 @@
-= contact.first_name
-= contact.last_name
-= contact.tel_number
-= link_to 'Make a phone call', new_marketing_campaign_contact_phone_call_path(marketing_campaign, contact)
+p
+  = contact.first_name
+p
+  = contact.last_name
+p
+  = contact.tel_number
+p
+  = contact.id
 
-- contact.phone_calls.each do |call|
-  = call.date
-  = call.length
+#buttons
+  button onclick="call('#{contact.tel_number}')" Call Contact
+  button onclick="hangup()" Hang up
+
+#log
+  span
