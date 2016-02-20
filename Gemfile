@@ -20,11 +20,12 @@ gem 'devise'
 gem 'rails_admin'
 gem 'twilio-ruby'
 gem 'figaro'
+gem 'faker'
+gem 'puma'
 
 group :development, :test do
   gem 'byebug'
   gem 'factory_girl_rails'
-  gem 'faker'
   gem 'rspec-rails'
   gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
 end
