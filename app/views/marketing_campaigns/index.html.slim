@@ -1,14 +1,16 @@
 - if marketing_campaigns.any?
   - marketing_campaigns.each do |campaign|
     h1
-      = campaign
+      = campaign.name
     table.table
       - if campaign.contacts.any?
         - campaign.contacts.each do |contact|
           tr
             td
-              = link_to contact.first_name, marketing_campaign_contact_path(campaign, contact)
+              = contact.first_name
             td
               = contact.last_name
             td
               = contact.tel_number
+            td
+              = link_to 'Details/Make a call', marketing_campaign_contact_path(campaign, contact)

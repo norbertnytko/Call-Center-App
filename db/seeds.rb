@@ -1,8 +1,8 @@
 puts "Seeding ..."
 
-active_campaign = MarketingCampaign.create!(active: true)
-other_active_campaign = MarketingCampaign.create!(active: true)
-inactive_campaign = MarketingCampaign.create!(active: false)
+active_campaign = MarketingCampaign.create!(active: true, name: 'First Active Campaign')
+other_active_campaign = MarketingCampaign.create!(active: true, name: 'Other Active Campaign')
+inactive_campaign = MarketingCampaign.create!(active: false, name: 'Some Inactive Campaign')
 
 User.create!(
   email: 'admin@admin.com',
@@ -59,7 +59,6 @@ end
 contacts = Contact.all
 30.times do
   PhoneCall.create!(
-    date: Faker::Date.between(15.days.ago, Date.today),
     duration: Random.rand(1..5),
     contact: contacts.sample,
     user: User.all.sample
