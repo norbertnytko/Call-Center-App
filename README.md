@@ -1,28 +1,24 @@
-== README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Call Center App
+================
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+### :link: Heroku address
+-------------
+
+[Call Center App](https://warm-cove-25795.herokuapp.com/)
+
+### :closed_lock_with_key: Technology stack
+-------------
+
+| Name |  Version |
+| :--: | :---: |
+| [Ruby](https://www.ruby-lang.org) | 2.3.0 |
+| [Ruby on Rails](http://www.rubyonrails.org/) | 4.2.5.1 |
+| [PostgreSQL](http://www.postgresql.org/) | 9.3 |
+
+### :book: Setup
+-------------
+1. clone repository,
+2. `cd path/to/repo`,
+3. `cp database.yml.sample database.yml`,
+4. `rake db:create db:schema:load`
