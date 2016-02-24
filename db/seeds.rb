@@ -1,6 +1,7 @@
 puts "Seeding ..."
 
 active_campaign = MarketingCampaign.create!(active: true)
+other_active_campaign = MarketingCampaign.create!(active: true)
 inactive_campaign = MarketingCampaign.create!(active: false)
 
 User.create!(
@@ -22,7 +23,7 @@ other_user =  User.create!(
   admin: false
 )
 
-user.marketing_campaigns = [active_campaign]
+other_user.marketing_campaigns = [active_campaign, other_active_campaign]
 
 Contact.create!(
   first_name: 'Norbert',
@@ -37,6 +38,14 @@ Contact.create!(
     last_name: Faker::Name.last_name,
     tel_number: Faker::PhoneNumber.phone_number,
     marketing_campaign: active_campaign)
+end
+
+10.times do
+  Contact.create!(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    tel_number: Faker::PhoneNumber.phone_number,
+    marketing_campaign: other_active_campaign)
 end
 
 5.times do
