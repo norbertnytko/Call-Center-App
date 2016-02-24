@@ -1,23 +1,23 @@
-p
-  = contact.first_name
-p
-  = contact.last_name
-p
-  = contact.tel_number
-p
-  = contact.id
+p = contact.first_name
+p = contact.last_name
+p = contact.tel_number
 
-#buttons
-  button onclick="call('#{contact.tel_number}', '#{contact.id}', '#{current_user.id}')" Call Contact
-  button onclick="hangup()" Hang up
+button.btn.btn-success onclick="call('#{contact.tel_number}',
+  '#{contact.id}', '#{current_user.id}')" Call Contact
+
+button.btn.btn-danger onclick="hangup()" Hang up
 
 #log
-  span
 
-p Contacts made
+h1 Phone calls
 
-- contact.phone_calls.each do |call|
-  p
-    = call.user.email
-    = call.created_at
-    = call.duration
+- if phone_calls.any?
+  table.table
+    - phone_calls.each do |call|
+      tr
+        td
+          = call.user.email
+        td
+          = call.duration
+        td
+          = call.created_at

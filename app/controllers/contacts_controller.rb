@@ -1,8 +1,5 @@
 class ContactsController < ApplicationController
   expose(:marketing_campaign)
   expose(:contact)
-
-  def current_user_id
-    current_user.id
-  end
+  expose(:phone_calls) {contact.phone_calls.where.not(duration: nil)}
 end

@@ -1,4 +1,4 @@
-nav.navbar.navbar-inverse role="navigation"
+nav.navbar.navbar-inverse.navbar-static-top role="navigation"
   .container
     .navbar-header
       button.navbar-toggle data-target="#navigation" data-toggle="collapse" type="button"
@@ -6,10 +6,13 @@ nav.navbar.navbar-inverse role="navigation"
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      = link_to 'App name', root_path, class: 'navbar-brand'
+      = link_to 'Call Center App', root_path, class: 'navbar-brand'
     #navigation.collapse.navbar-collapse
       ul.nav.navbar-nav
       ul.nav.navbar-nav.navbar-right
+        li
+          = link_to 'Admin', rails_admin_path
+
         - if user_signed_in?
           li
             = link_to t('navbar.logout'), destroy_user_session_path, method: :delete
