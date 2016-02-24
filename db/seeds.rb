@@ -14,6 +14,13 @@ User.create!(
 active_campaign = MarketingCampaign.create!(active: true)
 inactive_campaign = MarketingCampaign.create!(active: false)
 
+Contact.create!(
+  first_name: 'Norbert',
+  last_name: 'Nytko',
+  tel_number: '+48662919945',
+  marketing_campaign: active_campaign,
+  id: 88888)
+
 15.times do
   Contact.create!(
     first_name: Faker::Name.first_name,

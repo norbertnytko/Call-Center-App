@@ -4,14 +4,20 @@ $(document).ready(function() {
     });
 });
 
-function call(phoneNumber) {
-    var params = {"Number": phoneNumber};
+function call(phoneNumber, contact_id) {
+    var params = {"Number": phoneNumber,
+                  "ContactId": contact_id
+                 };
     Twilio.Device.connect(params);
 }
 
 function hangup() {
     Twilio.Device.disconnectAll();
 }
+
+call_sid = Twilio.Device.disconnect(function(conn) {
+    return conn.callSid;
+});
 
 Twilio.Device.ready(function (device) {
     $("#log").text("Ready");
