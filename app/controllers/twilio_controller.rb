@@ -5,9 +5,11 @@ class TwilioController < ApplicationController
   skip_before_action :verify_authenticity_token
   skip_before_action :authenticate_user!
 
-
   def call_contact
-    phone_call = PhoneCall.create(call_sid: params[:CallSid])
+    phone_call = PhoneCall.create(call_sid: params[:CallSid],
+                                  contact_id: params[:ContactId],
+                                  user_id: params[:UserId]
+                                  )
     response = Twilio::TwiML::Response.new do |r|
       r.Say 'Hello. Connecting you the customer now.'
       r.Dial callerId: ENV['TWILIO_NUMBER'], action: twilio_create_call_info_path do |d|

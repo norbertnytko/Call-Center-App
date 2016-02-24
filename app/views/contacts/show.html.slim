@@ -8,8 +8,16 @@ p
   = contact.id
 
 #buttons
-  button onclick="call('#{contact.tel_number}')" Call Contact
+  button onclick="call('#{contact.tel_number}', '#{contact.id}', '#{current_user.id}')" Call Contact
   button onclick="hangup()" Hang up
 
 #log
   span
+
+p Contacts made
+
+- contact.phone_calls.each do |call|
+  p
+    = call.user.email
+    = call.created_at
+    = call.duration

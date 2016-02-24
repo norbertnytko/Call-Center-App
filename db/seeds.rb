@@ -1,18 +1,28 @@
 puts "Seeding ..."
+
+active_campaign = MarketingCampaign.create!(active: true)
+inactive_campaign = MarketingCampaign.create!(active: false)
+
 User.create!(
   email: 'admin@admin.com',
   password: '12345678',
-  admin: true
+  admin: true,
 )
 
-User.create!(
+user = User.create!(
   email: 'user@user.com',
   password: '12345678',
   admin: false
 )
+user.marketing_campaigns = [active_campaign, inactive_campaign]
 
-active_campaign = MarketingCampaign.create!(active: true)
-inactive_campaign = MarketingCampaign.create!(active: false)
+other_user =  User.create!(
+  email: 'other@user.com',
+  password: '12345678',
+  admin: false
+)
+
+user.marketing_campaigns = [active_campaign]
 
 Contact.create!(
   first_name: 'Norbert',
@@ -41,7 +51,8 @@ contacts = Contact.all
 30.times do
   PhoneCall.create!(
     date: Faker::Date.between(15.days.ago, Date.today),
-    length: Random.rand(1..5),
-    contact: contacts.sample
+    duration: Random.rand(1..5),
+    contact: contacts.sample,
+    user: User.all.sample
   )
 end

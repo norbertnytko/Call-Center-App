@@ -4,9 +4,10 @@ $(document).ready(function() {
     });
 });
 
-function call(phoneNumber, contact_id) {
+function call(phoneNumber, contact_id, user_id) {
     var params = {"Number": phoneNumber,
-                  "ContactId": contact_id
+                  "ContactId": contact_id,
+                  "UserId": user_id
                  };
     Twilio.Device.connect(params);
 }
